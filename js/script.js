@@ -596,7 +596,7 @@ async function sendDiscordNotification(checkoutData) {
     console.log('📡 Sende Discord-Nachricht...');
     console.log('Webhook URL:', DISCORD_WEBHOOK_URL.substring(0, 50) + '...');
     
-    if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL === "HIER_DEINE_DISCORD_WEBHOOK_URL_EINFÜGEN") {
+    if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL === "https://discord.com/api/webhooks/1513950453140815984/-Ev1AQvMw4SrWDfCoBmHCo9y4SQ1IC5N1sM12LhsQQ7FfwymK2RyDtyq4r9I3kdOtzec") {
         console.error('❌ Discord Webhook URL nicht konfiguriert!');
         return;
     }
