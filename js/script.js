@@ -279,17 +279,23 @@ window.closeVariantModal = function() {
     document.body.style.overflow = '';
 };
 
+/// ============================================
+// 🛒 WARENKORB FUNKTIONEN (KORRIGIERT)
 // ============================================
-// 🛒 WARENKORB FUNKTIONEN
-// ============================================
+
+// Produkt zum Warenkorb hinzufügen
 window.addToCart = function(productId) {
+    console.log('Zur Warenkorb:', productId);
     let product = null;
     for (const categoryProducts of Object.values(products)) {
         product = categoryProducts.find(p => p.id === productId);
         if (product) break;
     }
 
-    if (!product) return;
+    if (!product) {
+        console.error('Produkt nicht gefunden:', productId);
+        return;
+    }
 
     const existingItem = cart.find(item => item.id === productId);
     
@@ -303,14 +309,21 @@ window.addToCart = function(productId) {
     showToast(`${product.name} wurde hinzugefügt.`);
 };
 
+// Produkt aus Warenkorb entfernen
 window.removeFromCart = function(itemId) {
+    console.log('Entferne:', itemId);
     cart = cart.filter(item => item.id !== itemId);
     updateCartUI();
 };
 
+// Menge ändern
 window.changeQuantity = function(itemId, delta) {
+    console.log('Menge ändern:', itemId, delta);
     const item = cart.find(item => item.id === itemId);
-    if (!item) return;
+    if (!item) {
+        console.error('Item nicht gefunden:', itemId);
+        return;
+    }
 
     item.quantity += delta;
     
@@ -321,6 +334,7 @@ window.changeQuantity = function(itemId, delta) {
     }
 };
 
+// Warenkorb UI aktualisieren
 function updateCartUI() {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartEmpty = document.getElementById('cart-empty');
@@ -329,7 +343,10 @@ function updateCartUI() {
     const cartItemsCount = document.getElementById('cart-items-count');
     const cartTotal = document.getElementById('cart-total');
 
-    if (!cartItemsContainer || !cartCountBadge) return;
+    if (!cartItemsContainer || !cartCountBadge) {
+        console.error('Warenkorb-Elemente nicht gefunden!');
+        return;
+    }
 
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
@@ -354,7 +371,12 @@ function updateCartUI() {
     if (cartFooter) cartFooter.classList.remove('hidden');
     if (cartEmpty) cartEmpty.classList.add('hidden');
 
-    cartItemsContainer.innerHTML = cart.map(item => `
+    // Warenkorb-Items rendern
+    cartItemsContainer.innerHTML = cart.map(item => {
+        // Stelle sicher dass ID ein String ist für onclick
+        const itemId = String(item.id);
+        
+        return `
         <div class="cart-item-enter glass rounded-xl p-4 flex gap-4 items-center">
             <img src="${item.image}" alt="${item.name}" 
                  class="w-16 h-16 rounded-lg object-cover bg-slate-800 flex-shrink-0"
@@ -365,44 +387,31 @@ function updateCartUI() {
                 <div class="text-brand-accent font-bold text-sm mt-1">${item.price.toFixed(2)} €</div>
                 
                 <div class="flex items-center gap-2 mt-2">
-                    <button onclick="changeQuantity('${item.id}', -1)" 
-                            class="w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-colors text-sm font-bold">−</button>
+                    <button onclick="window.changeQuantity('${itemId}', -1)" 
+                            class="w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-colors text-sm font-bold cursor-pointer">
+                        −
+                    </button>
                     <span class="text-sm text-white font-semibold w-6 text-center">${item.quantity}</span>
-                    <button onclick="changeQuantity('${item.id}', 1)" 
-                            class="w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-colors text-sm font-bold">+</button>
+                    <button onclick="window.changeQuantity('${itemId}', 1)" 
+                            class="w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-colors text-sm font-bold cursor-pointer">
+                        +
+                    </button>
                 </div>
             </div>
 
-            <button onclick="removeFromCart('${item.id}')" 
-                    class="remove-btn p-2 rounded-lg text-slate-500 flex-shrink-0" title="Entfernen">
+            <button onclick="window.removeFromCart('${itemId}')" 
+                    class="remove-btn p-2 rounded-lg text-slate-500 hover:text-red-400 flex-shrink-0 cursor-pointer transition-colors" 
+                    title="Entfernen">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
             </button>
         </div>
-    `).join('');
+    `}).join('');
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     if (cartTotal) cartTotal.innerText = total.toFixed(2).replace('.', ',') + ' €';
 }
-
-window.toggleCart = function() {
-    const panel = document.getElementById('cart-panel');
-    const overlay = document.getElementById('cart-overlay');
-    if (!panel || !overlay) return;
-    
-    const isOpen = !panel.classList.contains('translate-x-full');
-
-    if (isOpen) {
-        panel.classList.add('translate-x-full');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = '';
-    } else {
-        panel.classList.remove('translate-x-full');
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = 'hidden';
-    }
-};
 
 // ============================================
 // 🔐 CHECKOUT - CODE GENERIEREN & DISCORD NOTIFY
