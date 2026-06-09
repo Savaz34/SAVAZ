@@ -543,7 +543,13 @@ window.toggleCart = function() {
 // 🔐 CHECKOUT - CODE GENERIEREN & DISCORD NOTIFY
 // ============================================
 window.checkout = function() {
-    if (cart.length === 0) return;
+    console.log('🛒 Checkout gestartet...');
+    console.log('Warenkorb:', cart);
+    
+    if (cart.length === 0) {
+        alert('Warenkorb ist leer!');
+        return;
+    }
 
     const code = generateRandomCode();
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -555,11 +561,25 @@ window.checkout = function() {
         timestamp: new Date().toISOString()
     };
     
+    console.log('Checkout-Daten:', checkoutData);
     localStorage.setItem('checkoutData', JSON.stringify(checkoutData));
+    console.log('Daten in localStorage gespeichert');
 
-    sendDiscordNotification(checkoutData);
-
-    window.location.href = 'checkout.html';
+    // Discord-Benachrichtigung senden
+    console.log('Sende Discord-Nachricht...');
+    sendDiscordNotification(checkoutData)
+        .then(() => {
+            console.log('✅ Discord-Nachricht gesendet!');
+            // Kurze Verzögerung bevor weitergeleitet wird
+            setTimeout(() => {
+                window.location.href = 'checkout.html';
+            }, 500);
+        })
+        .catch(error => {
+            console.error('❌ Fehler beim Senden:', error);
+            // Trotzdem weiterleiten
+            window.location.href = 'checkout.html';
+        });
 };
 
 function generateRandomCode() {
@@ -573,14 +593,19 @@ function generateRandomCode() {
 }
 
 async function sendDiscordNotification(checkoutData) {
-    if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL === "https://discord.com/api/webhooks/1513950453140815984/-Ev1AQvMw4SrWDfCoBmHCo9y4SQ1IC5N1sM12LhsQQ7FfwymK2RyDtyq4r9I3kdOtzec") {
-        console.warn('Discord Webhook URL nicht konfiguriert!');
+    console.log('📡 Sende Discord-Nachricht...');
+    console.log('Webhook URL:', DISCORD_WEBHOOK_URL.substring(0, 50) + '...');
+    
+    if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL === "HIER_DEINE_DISCORD_WEBHOOK_URL_EINFÜGEN") {
+        console.error('❌ Discord Webhook URL nicht konfiguriert!');
         return;
     }
 
     const itemsList = checkoutData.items.map(item => 
         `• **${item.name}** x${item.quantity} = ${(item.price * item.quantity).toFixed(2)} €`
     ).join('\n');
+
+    console.log('Items:', itemsList);
 
     const embed = {
         title: "🛒 Neue Bestellung eingegangen!",
@@ -598,11 +623,13 @@ async function sendDiscordNotification(checkoutData) {
             },
             {
                 name: "📦 Artikel",
-                value: itemsList
+                value: itemsList || "Keine Artikel",
+                inline: false
             },
             {
                 name: "🕐 Zeitpunkt",
-                value: new Date(checkoutData.timestamp).toLocaleString('de-DE')
+                value: new Date(checkoutData.timestamp).toLocaleString('de-DE'),
+                inline: false
             }
         ],
         footer: {
@@ -611,18 +638,37 @@ async function sendDiscordNotification(checkoutData) {
         timestamp: checkoutData.timestamp
     };
 
+    const payload = {
+        content: "🔔 **Neue Bestellung!** Bitte Discord-Ticket öffnen und Code einlösen.",
+        embeds: [embed]
+    };
+
+    console.log('Sende Payload:', JSON.stringify(payload, null, 2));
+
     try {
-        await fetch(DISCORD_WEBHOOK_URL, {
+        const response = await fetch(DISCORD_WEBHOOK_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                content: "🔔 **Neue Bestellung!** Bitte Discord-Ticket öffnen und Code einlösen.",
-                embeds: [embed]
-            })
+            headers: { 
+                'Content-Type': 'application/json',
+                'User-Agent': 'DigitalVault-Shop/1.0'
+            },
+            body: JSON.stringify(payload)
         });
-        console.log('✅ Discord-Benachrichtigung gesendet!');
+        
+        console.log('Response Status:', response.status);
+        console.log('Response OK:', response.ok);
+        
+        if (response.ok) {
+            console.log('✅ Discord-Nachricht erfolgreich gesendet!');
+            return true;
+        } else {
+            const errorText = await response.text();
+            console.error('❌ Discord Fehler:', response.status, errorText);
+            throw new Error(`Discord API Error: ${response.status}`);
+        }
     } catch (error) {
-        console.error('❌ Fehler beim Senden der Discord-Nachricht:', error);
+        console.error('❌ Netzwerk-Fehler:', error);
+        throw error;
     }
 }
 
