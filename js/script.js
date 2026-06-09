@@ -50,150 +50,52 @@ const products = {
             stock: "Auf Lager",
             badge: null,
             variants: [
-                {
-                    name: "EU - Level 1-20 Ranked Ready",
-                    price: 8.99,
-                    description: "Fresh Account, ready for ranked",
-                    features: ["Level 1-20", "EU Server", "Ranked Ready"]
-                },
-                {
-                    name: "EU - Level 1-20 + Knife",
-                    price: 12.99,
-                    description: "Account mit Knife und Skins",
-                    features: ["Level 1-20", "Knife Skin", "1000-3000 VP", "EU Server"]
-                },
-                {
-                    name: "EU - Level 40-100 + Skins",
-                    price: 19.99,
-                    description: "High Level Account mit vielen Skins",
-                    features: ["Level 40-100", "+ Knives", "3000VP - 10000VP"]
-                },
-                {
-                    name: "EU - Level 50-200 + Skins",
-                    price: 19.99,
-                    description: "High Level Account mit vielen Skins",
-                    features: ["Level 50-200", "+ Knives", "5000VP - 20000VP"]
-                },
-                {
-                    name: "EU - Level 100-300 + Skins",
-                    price: 19.99,
-                    description: "High Level Account mit vielen Skins",
-                    features: ["Level 100-300", "+ Knives", "30000VP - 55000VP"]
-                }
+                { name: "EU - Level 1-20 Ranked Ready", price: 8.99, description: "Fresh Account, ready for ranked", features: ["Level 1-20", "EU Server", "Ranked Ready"] },
+                { name: "EU - Level 1-20 + Knife", price: 12.99, description: "Account mit Knife und Skins", features: ["Level 1-20", "Knife Skin", "1000-3000 VP", "EU Server"] },
+                { name: "EU - Level 40-100 + Skins", price: 19.99, description: "High Level Account mit vielen Skins", features: ["Level 40-100", "+ Knives", "3000VP - 10000VP"] },
+                { name: "EU - Level 50-200 + Skins", price: 19.99, description: "High Level Account mit vielen Skins", features: ["Level 50-200", "+ Knives", "5000VP - 20000VP"] },
+                { name: "EU - Level 100-300 + Skins", price: 19.99, description: "High Level Account mit vielen Skins", features: ["Level 100-300", "+ Knives", "30000VP - 55000VP"] }
             ]
-        },
-        // ... andere Valorant Accounts
+        }
     ],
     "Fortnite Accounts": [
-    {
-        id: 70,
-        name: "Fortnite Accounts",
-        price: 7.99,
-        image: "images/fortnite.jpg",
-        stock: "Auf Lager",
-        badge: "Top",
-        variants: [
-            {
-                name: "100-150 Skins",
-                price: 7.99,
-                description: "Account mit 100-150 verschiedenen Skins",
-                features: ["100-150 Skins", "Sofort verfügbar"]
-            },
-            {
-                name: "150-250 Skins",
-                price: 7.99,
-                description: "Account mit 150-250 verschiedenen Skins",
-                features: ["150-250 Skins", "Sofort verfügbar"]
-            },
-            {
-                name: "100-250 Tryhard-Skins",
-                price: 7.99,
-                description: "Account mit Tryhard-Skins",
-                features: ["100-250 Skins", "Tryhard Skins", "Sofort verfügbar"]
-            },
-            {
-                name: "OG STW + 100-200 Skins",
-                price: 7.99,
-                description: "Account mit 100-200 verschiedenen Skins",
-                features: ["100-200 Skins", "OG Account"]
-            },
-            {
-                name: "250-400 Skins",
-                price: 7.99,
-                description: "Account mit 250-400 verschiedenen Skins",
-                features: ["250-400 Skins", "Sofort verfügbar"]
-            },
-            {
-                name: "Leviathan Axe + 100-200 Skins",
-                price: 7.99,
-                description: "Account mit Leviathan Axe Skin",
-                features: ["100-200 Skins", "Leviathan Axe", "Rare Skin"]
-            },
-            {
-                name: "Minty Axe + 100-250 Skins",
-                price: 7.99,
-                description: "Account mit Minty Axe Skin",
-                features: ["100-250 Skins", "Minty Axe", "Rare Skin"]
-            },
-            {
-                name: "350 Level + Tournament Ready",
-                price: 7.99,
-                description: "High-Level Account, bereit für Turniere",
-                features: ["Level 350+", "Tournament Ready", "Competitive"]
-            },
-            {
-                name: "Travis Scott + 100-250 Skins",
-                price: 7.99,
-                description: "Account mit Travis Scott Skin",
-                features: ["100-250 Skins", "Travis Scott", "Rare Skin"]
-            },
-            {
-                name: "400-600 Skins",
-                price: 7.99,
-                description: "Account mit 400-600 verschiedenen Skins",
-                features: ["400-600 Skins", "Sofort verfügbar"]
-            },
-            {
-                name: "Black Knight + 50-250 Skins",
-                price: 7.99,
-                description: "Account mit Black Knight Skin",
-                features: ["50-250 Skins", "Black Knight", "OG Skin"]
-            }
-        ]
-    }
-    
-],
-
-"Fortnite V-Bucks Accounts": [
-    {
-        id: 90,
-        name: "Fortnite V-Bucks Accounts",
-        price: 7.99,
-        image: "images/fortnitevb.jpg",
-        stock: "Auf Lager",
-        badge: "Top",
-        variants: [
-            {
-                name: "800-1200 V-Bucks",
-                price: 7.99,
-                description: "Account mit 800-1200 V-Bucks Guthaben",
-                features: ["800-1200 V-Bucks", "Sofort verfügbar"]
-            },
-            {
-                name: "1500-2800 V-Bucks",
-                price: 7.99,
-                description: "Account mit 1500-2800 V-Bucks Guthaben",
-                features: ["1500-2800 V-Bucks", "Sofort verfügbar"]
-            },
-            {
-                name: "5000-7000 V-Bucks",
-                price: 9.99,
-                description: "Account mit 5000-7000 V-Bucks Guthaben",
-                features: ["5000-7000 V-Bucks", "Sofort verfügbar", "Bestes Preis-Leistungs-Verhältnis"]
-            }
-        ]
-    }
-],
+        {
+            id: 70,
+            name: "Fortnite Accounts",
+            price: 7.99,
+            image: "images/fortnite.jpg",
+            stock: "Auf Lager",
+            badge: "Top",
+            variants: [
+                { name: "100-150 Skins", price: 7.99, description: "Account mit 100-150 verschiedenen Skins", features: ["100-150 Skins", "Sofort verfügbar"] },
+                { name: "150-250 Skins", price: 7.99, description: "Account mit 150-250 verschiedenen Skins", features: ["150-250 Skins", "Sofort verfügbar"] },
+                { name: "100-250 Tryhard-Skins", price: 7.99, description: "Account mit Tryhard-Skins", features: ["100-250 Skins", "Tryhard Skins", "Sofort verfügbar"] },
+                { name: "OG STW + 100-200 Skins", price: 7.99, description: "Account mit 100-200 verschiedenen Skins", features: ["100-200 Skins", "OG Account"] },
+                { name: "250-400 Skins", price: 7.99, description: "Account mit 250-400 verschiedenen Skins", features: ["250-400 Skins", "Sofort verfügbar"] },
+                { name: "Leviathan Axe + 100-200 Skins", price: 7.99, description: "Account mit Leviathan Axe Skin", features: ["100-200 Skins", "Leviathan Axe", "Rare Skin"] },
+                { name: "Minty Axe + 100-250 Skins", price: 7.99, description: "Account mit Minty Axe Skin", features: ["100-250 Skins", "Minty Axe", "Rare Skin"] },
+                { name: "350 Level + Tournament Ready", price: 7.99, description: "High-Level Account, bereit für Turniere", features: ["Level 350+", "Tournament Ready", "Competitive"] },
+                { name: "Travis Scott + 100-250 Skins", price: 7.99, description: "Account mit Travis Scott Skin", features: ["100-250 Skins", "Travis Scott", "Rare Skin"] },
+                { name: "400-600 Skins", price: 7.99, description: "Account mit 400-600 verschiedenen Skins", features: ["400-600 Skins", "Sofort verfügbar"] },
+                { name: "Black Knight + 50-250 Skins", price: 7.99, description: "Account mit Black Knight Skin", features: ["50-250 Skins", "Black Knight", "OG Skin"] }
+            ]
+        }
+    ],
+    "Fortnite V-Bucks Accounts": [
+        {
+            id: 90,
+            name: "Fortnite V-Bucks Accounts",
+            price: 7.99,
+            image: "images/fortnitevb.jpg",
+            stock: "Auf Lager",
+            badge: "Top",
+            variants: [
+                { name: "800-1200 V-Bucks", price: 7.99, description: "Account mit 800-1200 V-Bucks Guthaben", features: ["800-1200 V-Bucks", "Sofort verfügbar"] },
+                { name: "1500-2800 V-Bucks", price: 7.99, description: "Account mit 1500-2800 V-Bucks Guthaben", features: ["1500-2800 V-Bucks", "Sofort verfügbar"] },
+                { name: "5000-7000 V-Bucks", price: 9.99, description: "Account mit 5000-7000 V-Bucks Guthaben", features: ["5000-7000 V-Bucks", "Sofort verfügbar", "Bestes Preis-Leistungs-Verhältnis"] }
+            ]
+        }
+    ]
 };
 
 // ============================================
@@ -207,7 +109,7 @@ const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/151395045314081598
 let cart = [];
 
 // ============================================
-// 🎨 PRODUKTE RENDERN
+// 🎨 PRODUKTE RENDERN (NUR EINMAL!)
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
     renderAllProducts();
@@ -216,45 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function renderAllProducts() {
     const container = document.getElementById('products-container');
-    container.innerHTML = '';
-
-    for (const [category, categoryProducts] of Object.entries(products)) {
-        const categorySection = document.createElement('div');
-        categorySection.className = 'category-section';
-        
-        const categoryTitle = document.createElement('div');
-        categoryTitle.className = 'flex items-center gap-3 mb-8';
-        categoryTitle.innerHTML = `
-            <div class="h-px flex-1 bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
-            <h3 class="text-2xl font-bold text-white px-4">${category}</h3>
-            <div class="h-px flex-1 bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
-        `;
-        
-        categorySection.appendChild(categoryTitle);
-
-        const productGrid = document.createElement('div');
-        productGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6';
-
-        categoryProducts.forEach(product => {
-            const productCard = createProductCard(product);
-            productGrid.appendChild(productCard);
-        });
-
-        categorySection.appendChild(productGrid);
-        container.appendChild(categorySection);
-    }
-}
-
-// ============================================
-// 🎨 PRODUKTE RENDERN
-// ============================================
-document.addEventListener('DOMContentLoaded', () => {
-    renderAllProducts();
-    updateCartUI();
-});
-
-function renderAllProducts() {
-    const container = document.getElementById('products-container');
+    if (!container) return;
+    
     container.innerHTML = '';
 
     for (const [category, categoryProducts] of Object.entries(products)) {
@@ -296,7 +161,6 @@ function createProductCard(product) {
 
     const stockColor = product.stock.includes('Nur noch') ? 'text-yellow-400 bg-yellow-500/10 border-yellow-500/20' : 'text-green-400 bg-green-500/10 border-green-500/20';
 
-    // Prüfen ob Produkt Varianten hat
     const hasVariants = product.variants && product.variants.length > 0;
     const buttonText = hasVariants ? 'Auswählen' : 'Kaufen';
     const buttonAction = hasVariants ? `openVariantModal(${product.id})` : `addToCart(${product.id})`;
@@ -338,8 +202,6 @@ function createProductCard(product) {
 // ============================================
 // 🎯 VARIANTEN MODAL FUNKTIONEN
 // ============================================
-
-// Modal öffnen
 window.openVariantModal = function(productId) {
     let product = null;
     for (const categoryProducts of Object.values(products)) {
@@ -353,9 +215,10 @@ window.openVariantModal = function(productId) {
     const modalTitle = document.getElementById('variant-modal-title');
     const modalVariants = document.getElementById('modal-variants');
 
+    if (!modal || !modalTitle || !modalVariants) return;
+
     modalTitle.innerText = product.name;
     
-    // Varianten rendern
     modalVariants.innerHTML = product.variants.map((variant, index) => `
         <div onclick="selectVariant(${product.id}, ${index})" 
              class="variant-option glass rounded-xl p-4 cursor-pointer border-2 border-transparent hover:border-brand-500/50 transition-all group">
@@ -364,7 +227,7 @@ window.openVariantModal = function(productId) {
                 <span class="text-brand-accent font-bold text-lg">${variant.price.toFixed(2)} €</span>
             </div>
             <p class="text-slate-400 text-sm mb-3">${variant.description || ''}</p>
-            <div class="flex gap-2">
+            <div class="flex gap-2 flex-wrap">
                 ${variant.features ? variant.features.map(feature => `
                     <span class="text-xs bg-green-500/10 text-green-400 px-2 py-1 rounded border border-green-500/20">✓ ${feature}</span>
                 `).join('') : ''}
@@ -379,7 +242,6 @@ window.openVariantModal = function(productId) {
     document.body.style.overflow = 'hidden';
 };
 
-// Variante auswählen
 window.selectVariant = function(productId, variantIndex) {
     let product = null;
     for (const categoryProducts of Object.values(products)) {
@@ -391,9 +253,8 @@ window.selectVariant = function(productId, variantIndex) {
 
     const selectedVariant = product.variants[variantIndex];
     
-    // Zum Warenkorb hinzufügen
     cart.push({
-        id: product.id,
+        id: product.id + '_' + variantIndex,
         name: `${product.name} - ${selectedVariant.name}`,
         price: selectedVariant.price,
         image: product.image,
@@ -404,14 +265,13 @@ window.selectVariant = function(productId, variantIndex) {
 
     updateCartUI();
     showToast(`${product.name} (${selectedVariant.name}) wurde hinzugefügt.`);
-    
-    // Modal schließen
     closeVariantModal();
 };
 
-// Modal schließen
 window.closeVariantModal = function() {
     const modal = document.getElementById('variant-modal');
+    if (!modal) return;
+    
     modal.classList.add('opacity-0', 'pointer-events-none');
     setTimeout(() => {
         modal.classList.add('hidden');
@@ -443,19 +303,19 @@ window.addToCart = function(productId) {
     showToast(`${product.name} wurde hinzugefügt.`);
 };
 
-window.removeFromCart = function(productId) {
-    cart = cart.filter(item => item.id !== productId);
+window.removeFromCart = function(itemId) {
+    cart = cart.filter(item => item.id !== itemId);
     updateCartUI();
 };
 
-window.changeQuantity = function(productId, delta) {
-    const item = cart.find(item => item.id === productId);
+window.changeQuantity = function(itemId, delta) {
+    const item = cart.find(item => item.id === itemId);
     if (!item) return;
 
     item.quantity += delta;
     
     if (item.quantity <= 0) {
-        removeFromCart(productId);
+        removeFromCart(itemId);
     } else {
         updateCartUI();
     }
@@ -469,6 +329,8 @@ function updateCartUI() {
     const cartItemsCount = document.getElementById('cart-items-count');
     const cartTotal = document.getElementById('cart-total');
 
+    if (!cartItemsContainer || !cartCountBadge) return;
+
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
     cartCountBadge.innerText = totalItems;
@@ -477,19 +339,20 @@ function updateCartUI() {
     } else {
         cartCountBadge.classList.add('scale-0');
     }
-    cartItemsCount.innerText = totalItems;
+    
+    if (cartItemsCount) cartItemsCount.innerText = totalItems;
 
     if (cart.length === 0) {
         cartItemsContainer.classList.add('hidden');
-        cartFooter.classList.add('hidden');
-        cartEmpty.classList.remove('hidden');
-        cartTotal.innerText = '0,00 €';
+        if (cartFooter) cartFooter.classList.add('hidden');
+        if (cartEmpty) cartEmpty.classList.remove('hidden');
+        if (cartTotal) cartTotal.innerText = '0,00 €';
         return;
     }
 
     cartItemsContainer.classList.remove('hidden');
-    cartFooter.classList.remove('hidden');
-    cartEmpty.classList.add('hidden');
+    if (cartFooter) cartFooter.classList.remove('hidden');
+    if (cartEmpty) cartEmpty.classList.add('hidden');
 
     cartItemsContainer.innerHTML = cart.map(item => `
         <div class="cart-item-enter glass rounded-xl p-4 flex gap-4 items-center">
@@ -502,15 +365,15 @@ function updateCartUI() {
                 <div class="text-brand-accent font-bold text-sm mt-1">${item.price.toFixed(2)} €</div>
                 
                 <div class="flex items-center gap-2 mt-2">
-                    <button onclick="changeQuantity(${item.id}, -1)" 
+                    <button onclick="changeQuantity('${item.id}', -1)" 
                             class="w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-colors text-sm font-bold">−</button>
                     <span class="text-sm text-white font-semibold w-6 text-center">${item.quantity}</span>
-                    <button onclick="changeQuantity(${item.id}, 1)" 
+                    <button onclick="changeQuantity('${item.id}', 1)" 
                             class="w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition-colors text-sm font-bold">+</button>
                 </div>
             </div>
 
-            <button onclick="removeFromCart(${item.id})" 
+            <button onclick="removeFromCart('${item.id}')" 
                     class="remove-btn p-2 rounded-lg text-slate-500 flex-shrink-0" title="Entfernen">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -520,12 +383,14 @@ function updateCartUI() {
     `).join('');
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    cartTotal.innerText = total.toFixed(2).replace('.', ',') + ' €';
+    if (cartTotal) cartTotal.innerText = total.toFixed(2).replace('.', ',') + ' €';
 }
 
 window.toggleCart = function() {
     const panel = document.getElementById('cart-panel');
     const overlay = document.getElementById('cart-overlay');
+    if (!panel || !overlay) return;
+    
     const isOpen = !panel.classList.contains('translate-x-full');
 
     if (isOpen) {
@@ -563,22 +428,21 @@ window.checkout = function() {
     
     console.log('Checkout-Daten:', checkoutData);
     localStorage.setItem('checkoutData', JSON.stringify(checkoutData));
-    console.log('Daten in localStorage gespeichert');
+    console.log('✅ Daten in localStorage gespeichert');
 
-    // Discord-Benachrichtigung senden
-    console.log('Sende Discord-Nachricht...');
+    console.log('📡 Sende Discord-Nachricht...');
     sendDiscordNotification(checkoutData)
         .then(() => {
-            console.log('✅ Discord-Nachricht gesendet!');
-            // Kurze Verzögerung bevor weitergeleitet wird
+            console.log('✅ Discord-Nachricht erfolgreich gesendet!');
             setTimeout(() => {
                 window.location.href = 'checkout.html';
-            }, 500);
+            }, 1000);
         })
         .catch(error => {
             console.error('❌ Fehler beim Senden:', error);
-            // Trotzdem weiterleiten
-            window.location.href = 'checkout.html';
+            setTimeout(() => {
+                window.location.href = 'checkout.html';
+            }, 1000);
         });
 };
 
@@ -592,20 +456,24 @@ function generateRandomCode() {
     return code;
 }
 
+// ============================================
+// 📡 DISCORD NACHRICHT SENDEN (KORRIGIERT!)
+// ============================================
 async function sendDiscordNotification(checkoutData) {
-    console.log('📡 Sende Discord-Nachricht...');
-    console.log('Webhook URL:', DISCORD_WEBHOOK_URL.substring(0, 50) + '...');
+    console.log('📡 Discord-Funktion aufgerufen');
+    console.log('Webhook URL vorhanden:', !!DISCORD_WEBHOOK_URL);
     
-    if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL === "https://discord.com/api/webhooks/1513950453140815984/-Ev1AQvMw4SrWDfCoBmHCo9y4SQ1IC5N1sM12LhsQQ7FfwymK2RyDtyq4r9I3kdOtzec") {
-        console.error('❌ Discord Webhook URL nicht konfiguriert!');
-        return;
+    // ✅ KORRIGIERTE BEDINGUNG - Prüft nur ob URL leer ist
+    if (!DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL.trim() === "") {
+        console.error('❌ Discord Webhook URL ist leer!');
+        throw new Error('Webhook URL nicht konfiguriert');
     }
 
     const itemsList = checkoutData.items.map(item => 
         `• **${item.name}** x${item.quantity} = ${(item.price * item.quantity).toFixed(2)} €`
     ).join('\n');
 
-    console.log('Items:', itemsList);
+    console.log('Artikel-Liste:', itemsList);
 
     const embed = {
         title: "🛒 Neue Bestellung eingegangen!",
@@ -643,38 +511,46 @@ async function sendDiscordNotification(checkoutData) {
         embeds: [embed]
     };
 
-    console.log('Sende Payload:', JSON.stringify(payload, null, 2));
+    console.log('📤 Sende Payload an Discord...');
+    console.log('Payload:', JSON.stringify(payload, null, 2));
 
     try {
         const response = await fetch(DISCORD_WEBHOOK_URL, {
             method: 'POST',
             headers: { 
-                'Content-Type': 'application/json',
-                'User-Agent': 'DigitalVault-Shop/1.0'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
         });
         
-        console.log('Response Status:', response.status);
-        console.log('Response OK:', response.ok);
+        console.log('📥 Response Status:', response.status);
+        console.log('📥 Response OK:', response.ok);
         
         if (response.ok) {
             console.log('✅ Discord-Nachricht erfolgreich gesendet!');
             return true;
         } else {
             const errorText = await response.text();
-            console.error('❌ Discord Fehler:', response.status, errorText);
+            console.error('❌ Discord API Fehler:', response.status, errorText);
             throw new Error(`Discord API Error: ${response.status}`);
         }
     } catch (error) {
-        console.error('❌ Netzwerk-Fehler:', error);
+        console.error('❌ Netzwerk/CORS-Fehler:', error);
+        console.error('Tipp: Öffne die Seite über einen lokalen Server (z.B. python -m http.server 8000)');
         throw error;
     }
 }
 
+// ============================================
+// 🔔 TOAST BENACHRICHTIGUNG
+// ============================================
 function showToast(message) {
     const toast = document.getElementById('toast');
-    document.getElementById('toast-message').innerText = message;
+    if (!toast) return;
+    
+    const toastMessage = document.getElementById('toast-message');
+    if (toastMessage) toastMessage.innerText = message;
+    
     toast.classList.remove('translate-y-24');
     
     setTimeout(() => {
