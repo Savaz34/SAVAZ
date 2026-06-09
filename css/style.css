@@ -69,3 +69,32 @@ body > .relative {
         transform: translateX(0);
     }
 }
+
+/* Varianten Modal Animation */
+.variant-option {
+    transition: all 0.3s ease;
+}
+
+.variant-option:hover {
+    transform: translateX(8px);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+/* Scrollbar für Modal */
+#modal-variants::-webkit-scrollbar {
+    width: 8px;
+}
+
+#modal-variants::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+#modal-variants::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.5);
+    border-radius: 4px;
+}
+
+#modal-variants::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.8);
+}

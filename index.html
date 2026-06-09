@@ -331,76 +331,41 @@
 
 
 
-    <!-- Test-Button für Discord Webhook -->
-<div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
-    <button onclick="testDiscordWebhook()" style="background: #5865F2; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
-        🧪 Discord Webhook Testen
-    </button>
-</div>
+        <!-- ============================================ -->
+    <!-- 🎯 VARIANTEN MODAL -->
+    <!-- ============================================ -->
+    <div id="variant-modal" class="fixed inset-0 z-[100] hidden opacity-0 pointer-events-none transition-opacity duration-300">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeVariantModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl p-4">
+            <div class="glass rounded-2xl border border-brand-500/30 shadow-2xl shadow-brand-500/20 overflow-hidden">
+                <!-- Header -->
+                <div class="flex justify-between items-center p-6 border-b border-white/10">
+                    <h3 id="variant-modal-title" class="text-2xl font-bold text-white">Produkt auswählen</h3>
+                    <button onclick="closeVariantModal()" class="p-2 hover:bg-white/5 rounded-lg transition-colors text-slate-400 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Varianten Liste -->
+                <div id="modal-variants" class="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <!-- Wird durch JS gefüllt -->
+                </div>
+                
+                <!-- Footer -->
+                <div class="p-4 bg-slate-900/50 border-t border-white/5 text-center text-slate-400 text-sm">
+                    Klicke auf eine Option um sie auszuwählen
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script>
-async function testDiscordWebhook() {
-    console.log(' Teste Discord Webhook...');
+    <!-- Eigenes JavaScript -->
+    <script src="js/script.js"></script>
     
-    // Prüfen ob URL eingetragen ist
-    if (typeof DISCORD_WEBHOOK_URL === 'undefined' || 
-        !DISCORD_WEBHOOK_URL || 
-        DISCORD_WEBHOOK_URL === "HIER_DEINE_DISCORD_WEBHOOK_URL_EINFÜGEN") {
-        
-        alert('❌ Discord Webhook URL nicht eingetragen!\n\nBitte öffne js/script.js und trage deine Webhook-URL ein.');
-        return;
-    }
-    
-    // Test-Nachricht senden
-    const testMessage = {
-        content: "🧪 **Webhook Test erfolgreich!**",
-        embeds: [{
-            title: "✅ Test-Nachricht",
-            description: "Wenn du diese Nachricht siehst, funktioniert dein Discord Webhook!",
-            color: 0x00ff00,
-            fields: [
-                {
-                    name: "🕐 Zeitstempel",
-                    value: new Date().toLocaleString('de-DE'),
-                    inline: true
-                },
-                {
-                    name: " URL Status",
-                    value: "✅ Verbunden",
-                    inline: true
-                }
-            ],
-            footer: {
-                text: "DigitalVault Shop Test"
-            }
-        }]
-    };
-    
-    try {
-        console.log('Sende an:', DISCORD_WEBHOOK_URL);
-        
-        const response = await fetch(DISCORD_WEBHOOK_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(testMessage)
-        });
-        
-        if (response.ok) {
-            console.log('✅ Erfolg! Status:', response.status);
-            alert('✅ Erfolgreich! Schau in deinen Discord-Kanal.');
-        } else {
-            console.error('❌ Fehler:', response.status, response.statusText);
-            const errorText = await response.text();
-            console.error('Fehler-Details:', errorText);
-            alert('❌ Fehler ' + response.status + ': ' + response.statusText + '\n\nSiehe Console (F12) für Details.');
-        }
-    } catch (error) {
-        console.error('❌ Netzwerk-Fehler:', error);
-        alert('❌ Netzwerk-Fehler: ' + error.message + '\n\nSiehe Console (F12) für Details.');
-    }
-}
-</script>
 </body>
 </html>
